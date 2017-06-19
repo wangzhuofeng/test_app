@@ -1,12 +1,9 @@
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1 align="center"><%= @user.username.capitalize %>'s profile page</h1>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4 center">
+    <%= gravatar_for @user, size: 150 %>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h4 align="center"><%= @user.username.capitalize %>'s articles:</h4>
+<%= render 'articles/listarticle', obj: @user.articles %>
