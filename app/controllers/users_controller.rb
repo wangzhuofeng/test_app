@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, only: [:edit, :create, :destroy, :update]
+  before_action :require_user, only: [:edit, :destroy, :update]
   before_action :require_same_user, only: [:edit, :destroy, :update]
 
   # GET /users
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Sign up successful! Welcome to Mark's Test App"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render 'new'
