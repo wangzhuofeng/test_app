@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :show, :destroy, :update]
-  #before_action :require_admin, only: [:edit, :destroy, :update]
+  before_action :require_admin, except: [:index, :show]
   
   def new
     @category = Category.new
@@ -34,9 +34,9 @@ class CategoriesController < ApplicationController
   end
   
   def require_admin
-      if logged_in? and !current_user.admin?
+      if !logged_in? || !current_user.admin?
         flash[:danger] = "You need to be admin to perform this action!"
-        redirect_to root_path
+        redirect_to categories_path
       end
   end
 end

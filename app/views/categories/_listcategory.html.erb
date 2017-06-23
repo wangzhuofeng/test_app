@@ -1,12 +1,19 @@
-<table class="table-striped">
-  <tr>
-  <th>Name</th>
-  <th>Number of Articles</th>
-  </tr>
-  <% obj.each do |category| %>
-  <tr>
-    <td><%= link_to category[:name], category_path(category) %></td>
-    <td></td>
-  </tr>
-  <% end %>
-</table>
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Number of Articles</th>
+        </tr>
+      </thead>
+      <% obj.each do |category| %>
+      <tr>
+        <td><%= link_to category[:name], category_path(category) %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
