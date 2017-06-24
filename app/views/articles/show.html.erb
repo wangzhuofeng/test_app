@@ -9,7 +9,7 @@
       <small>Created by: <%= link_to @article.user.username, user_path(@article.user) %>  <%= gravatar_for(@article.user, size: 15) %></small>
       <% end %>
       <% if @article.categories.any? %>
-      <small>Category: <%= render @article.categories %></small>
+        <small>Category: <%= render @article.categories %></small>
       <% end %>
     </div>
   </div>
