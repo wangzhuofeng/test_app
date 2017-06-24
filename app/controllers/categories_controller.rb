@@ -17,10 +17,11 @@ class CategoriesController < ApplicationController
   end
   
   def show
+    @category_articles = @category.articles.paginate(page: params[:page], per_page: 2)
   end
   
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 2)
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
   
   private

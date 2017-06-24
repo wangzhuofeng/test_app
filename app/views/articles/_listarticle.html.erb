@@ -8,9 +8,12 @@
         <%= truncate(article[:description], length: 100) %>
         <div class="article-meta-details">
         <small>
-          Created by: <%= article.user.username if article.user %>,
+          Created by: <%= link_to article.user.username, user_path(article.user) if article.user %>,
           Created at: <%= time_ago_in_words(article.created_at) %> ago,
           Last Updated at: <%= time_ago_in_words(article.updated_at) %> ago.
+          <% if article.categories.any? %>
+            <br/><small>Category: <%= render article.categories %></small>
+          <% end %>
         </small>
         </div>
       </div>

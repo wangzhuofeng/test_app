@@ -1,0 +1,5 @@
+<h1 align="center">Category <%= @category.name.capitalize %></h1>
+
+<div class="center"><%= will_paginate @category_articles %></div>
+<%= render 'articles/listarticle', obj: @category_articles %>
+<div class="center"><%= will_paginate @category_articles %></div>
